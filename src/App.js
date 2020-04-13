@@ -102,19 +102,19 @@ class App extends React.Component {
         {/* Pendu image */}
         <div className="pendu">
           <div className="table">
-            <div className={"col-4 img-1 pendu-hidden"}></div>
-            <div className={"col-4 img-2 pendu-hidden"}></div>
-            <div className={"col-4 img-3 pendu-hidden"}></div>
+            <div id="img-1" className={this.state.nbError < 1 ? "pendu-hidden" : "pendu-not-hidden"}></div>
+            <div id="img-2" className={this.state.nbError < 2 ? "pendu-hidden" : "pendu-not-hidden"}></div>
+            <div id="img-3" className={this.state.nbError < 3 ? "pendu-hidden" : "pendu-not-hidden"}></div>
           </div>
           <div className="table">
-            <div className={"col-4 img-4 pendu-hidden"}></div>
-            <div className={"col-4 img-5 pendu-hidden"}></div>
-            <div className={"col-4 img-6 pendu-hidden"}></div>
+            <div id="img-4" className={this.state.nbError < 4 ? "pendu-hidden" : "pendu-not-hidden"}></div>
+            <div id="img-5" className={this.state.nbError < 5 ? "pendu-hidden" : "pendu-not-hidden"}></div>
+            <div id="img-6" className={this.state.nbError < 6 ? "pendu-hidden" : "pendu-not-hidden"}></div>
           </div>
           <div className="table">
-            <div className={"col-4 img-7 pendu-hidden"}></div>
-            <div className={"col-4 img-8 pendu-hidden"}></div>
-            <div className={"col-4 img-9 pendu-hidden"}></div>
+            <div id="img-7" className={this.state.nbError < 7 ? "pendu-hidden" : "pendu-not-hidden"}></div>
+            <div id="img-8" className={this.state.nbError < 8 ? "pendu-hidden" : "pendu-not-hidden"}></div>
+            <div id="img-9" className={this.state.nbError < 9 ? "pendu-hidden" : "pendu-not-hidden"}></div>
           </div>
         </div>
       

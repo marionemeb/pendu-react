@@ -4,7 +4,7 @@ $background-position: (top left,top center, top right,
 $i:1;
 
 @each $var in $background-position {
-    .img-#{$i} {
+   #img-#{$i}.pendu-not-hidden {
         background: url(https://topcomics.fr/wp-content/uploads/2018/07/morts-les-plus-violentes-dans-les-comics-de-super-heros-ares-dechiquete-par-sentry.jpg);
         background-position: $var;
         display: table-cell;
