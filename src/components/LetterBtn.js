@@ -1,15 +1,20 @@
 import React from "react";
-import './Letter.css';
+import './LetterBtn.css';
 
-function LetterBtn({ letter, selected }) {
-    return ( 
-        <button 
-        className={selected ? "selected" : ""} 
-        key={letter}
-        >
-            {letter}
-        </button>
-    );
+class LetterBtn extends React.Component {
+    handleClick = () => this.props.onClick(this.props.index)
+
+    render() {
+        return ( 
+            <button 
+            type="button"
+            className={this.props.isSelected ? "selected" : ""} 
+            onClick={this.handleClick}
+            >
+            { this.props.name }
+            </button>
+        );
+    }
 }
 
 export default LetterBtn;

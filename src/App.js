@@ -4,30 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './App.scss';
 
-let nbError = 0;
+import LetterBtn from './components/LetterBtn';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.initialState;
-    // this.state = {
-    //   class: false,
-    //   letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''),
-    //   riddle: "SUPERMAN",
-    //   usedLetters: [],
-    //   penduLetters: "",
-    // };
+
     this.resetBuilder = this.resetBuilder.bind(this);
     this.getWord = this.getWord.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleClassNameChange = this.handleClassNameChange.bind(this);
     this.computeDisplay = this.computeDisplay.bind(this);
   }
 
   get initialState() {
     return {
-      selected: false,
-      letters: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''),
+      selected: null,
       riddle: "SUPERMAN",
       usedLetters: [],
       penduLetters: "",
@@ -57,16 +49,8 @@ class App extends React.Component {
 
   handleClick = (e) => {
     this.setState({ 
-        usedLetters: this.state.usedLetters.concat(e)
+        usedLetters: this.state.usedLetters.concat(e),
     })
-    this.handleClassNameChange(e)
-  }
-
-  handleClassNameChange = (e) => {
-    console.log(document.getElementById(e))
-    document.getElementById(e).setAttribute("class", "selected");
-    nbError = this.state.riddle.includes(e)? nbError : nbError + 1;
-    console.log(nbError)
   }
 
   componentDidMount(){
@@ -82,10 +66,7 @@ class App extends React.Component {
 
   render(){
 
-    // for( var i=1; i<= nbError;i++){
-    //   document.getElementsByClassName("img-"+{i}).setAttribute()
-    //   console.log(document.getElementsByClassName("img-"+{i}))
-    // }
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
     return (
       <div className="App">
@@ -100,16 +81,16 @@ class App extends React.Component {
           {this.state.penduLetters ? this.state.penduLetters : this.state.riddle.replace(/\w/g, '_')}
         </div>
 
-        {/* The alphabet */}
+        {/* ListLetters */}
         <h2>Sélectionnez des lettres afin d'afficher le mot mistère</h2>
-        {this.state.letters.map( letter => 
-          <button 
-          onClick={(e) => this.handleClick(letter, e)}
-          className={this.state.selected ? "selected" : ""} 
+        {letters.map( letter => 
+          <LetterBtn 
+          onClick={this.handleClick}
+          isSelected={this.state.usedLetters.includes(letter)}
           key={letter}
-          id={letter}>
-            {letter}
-          </button>)
+          index={letter}
+          name={letter}
+          />)
         }
 
         {/* Pendu image */}
