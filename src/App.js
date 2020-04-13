@@ -19,6 +19,7 @@ class App extends React.Component {
 
   get initialState() {
     return {
+      nbError: 0,
       selected: null,
       riddle: "SUPERMAN",
       usedLetters: [],
@@ -61,7 +62,12 @@ class App extends React.Component {
   }
 
   computeDisplay() {  
-    this.setState({ penduLetters: this.state.riddle.replace(/\w/g, (letter) => (this.state.usedLetters.includes(letter) ? letter : '_')  )})
+    this.setState({ penduLetters: this.state.riddle.replace(/\w/g, (letter) => (this.state.usedLetters.includes(letter) ? letter : '_'))})
+    let count = 0;
+    for (let i=0 ; i < this.state.usedLetters.length; i++){
+      count = this.state.riddle.includes(this.state.usedLetters[i]) ? count : count+1
+    }
+    this.setState({ nbError: count})
   }
 
   render(){
