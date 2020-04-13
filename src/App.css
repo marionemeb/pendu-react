@@ -61,9 +61,11 @@
   display: table-row;
 }
 
-.pendu-hidden{
-  background: url(https://www.lenouveleconomiste.fr/wp-content/uploads/2016/12/sondage-826x459.jpg)
-  !important;
+.pendu-hidden {
+  background-color: rgba(158, 158, 158, 0.808);
+  background-position: center;
+  display: table-cell;
+  width: 120px;
+  height: 120px;
+  border: 1px solid white;
 }
-
-
