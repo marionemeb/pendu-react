@@ -21,7 +21,8 @@ class App extends React.Component {
     return {
       nbError: 0,
       selected: null,
-      riddle: "SUPERMAN",
+      riddle: "",
+      avatar:"",
       usedLetters: [],
       penduLetters: "",
     };
@@ -41,9 +42,9 @@ class App extends React.Component {
     .then(response => response.data)
     // Use this data to update the state
     .then(data => {
-      console.log(data);
       this.setState({
         riddle: data.name.toUpperCase(),
+        avatar: data.image.url
       });
     });
   }
@@ -86,6 +87,7 @@ class App extends React.Component {
         <div className="riddle">
           {this.state.penduLetters ? this.state.penduLetters : this.state.riddle.replace(/\w/g, '_')}
         </div>
+        <img src={this.state.avatar} alt={this.state.penduLetters} className="avatar"/>
 
         {/* ListLetters */}
         <h2>Sélectionnez des lettres afin d'afficher le mot mistère</h2>
