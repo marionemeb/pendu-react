@@ -8,9 +8,28 @@
   height: 20vh;
 }
 
+h1, h2{
+  margin: 30px 0;
+}
+
 /*** PENDU BODY ***/
 .pendu-body{
   display: flex;
+}
+
+.circle{
+  width:40px;
+  margin-left: 10px;
+  background:#FF0000;
+  color: whitesmoke;
+  height:40px;
+  text-align:center;
+  border-radius:100px;
+  line-height: 40px;
+  position: absolute;
+  top: 23vh;
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
 /*** Letters part ***/
@@ -79,6 +98,15 @@
   display: table;
 }
 
+.loose{
+  margin: 0 auto;
+  height: 520px;
+  width: 680px;
+  display: table;
+  opacity: 0.5;
+  /* position: absolute; */
+}
+
 .table{
   display: table-row;
 }
@@ -92,4 +120,59 @@
   border: 1px solid white;
 }
 
+/*** POP-UP ***/
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.pop-up {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: visible;
+  opacity: 1;
+}
 
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: rgb(216, 6, 6);
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}

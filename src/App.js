@@ -81,6 +81,7 @@ class App extends React.Component {
         {/* The header */}
         <div className="pendu-header">
           <h1>Jeu du Pendu... Version Super Heros!</h1>
+          
           <p>Le jeu consiste à trouver le nom d'un super héro ou super vilain en devinant quelles sont les lettres qui le composent. <br />
           Attention, tu n'auras que 9 essais, ensuite la partie sera perdue!</p>
         </div>
@@ -88,7 +89,11 @@ class App extends React.Component {
         <div className="pendu-body">
         {/* Letters */}
         <div className="letters">
-        <h2>Choix des lettres</h2>
+        <h2>
+        <div class="circle">
+              2
+        </div>
+          Choix des lettres</h2>
         {letters.map( letter => 
           <LetterBtn 
           onClick={this.handleClick}
@@ -102,6 +107,12 @@ class App extends React.Component {
 
         {/* The riddle */}
         <div className="pendu-riddle">
+          <h2>
+            <div class="circle">
+              1
+            </div>
+            Génère un nom de super héro
+          </h2>
           <button onClick={this.getWord} className="styled">Jouer !</button>
 
           <div className="riddle">
@@ -131,6 +142,18 @@ class App extends React.Component {
         </div>
 
         </div>
+
+        {/* Pop-up LOOSE*/}
+        <div className={this.state.nbError < 10 ? "overlay" : "pop-up"}>
+          <div class="popup">
+            <h2>PERDU !</h2>
+            <a className="close" onClick={this.resetBuilder}>&times;</a>
+            <div class="content">
+              Retente ta chance...
+            </div>
+          </div>
+        </div>
+
       </div>
       );
     }
