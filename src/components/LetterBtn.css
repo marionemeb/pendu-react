@@ -1,4 +1,22 @@
 .selected{
+    width:35px;
+    height:35px;
+    margin: 10px 10px;
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Arial;
+	border-radius:50%;
     background-color: grey;
     color: honeydew;
+    padding: .375rem .375rem;
+}
+
+.btn{
+    width:35px;
+    height:35px;
+    margin: 10px 10px;
+	background:#fafafa;
+	box-shadow:2px 2px 8px #aaa;
+	font:bold 13px Arial;
+	border-radius:50%;
+	color:#555;
 }
