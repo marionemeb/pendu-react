@@ -77,20 +77,18 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1>Jeu du Pendu... Version Super Heros!</h1>
-        <p>Le jeu consiste à trouver le nom d'un super héro ou super vilain en devinant quelles sont les lettres qui le composent. <br />
-        Attention, tu n'auras que 9 essais, ensuite la partie sera perdue!</p>
 
-        {/* The riddle */}
-        <button onClick={this.getWord}>Générer un nouveau nom</button>
-
-        <div className="riddle">
-          {this.state.penduLetters ? this.state.penduLetters : this.state.riddle.replace(/\w/g, '_')}
+        {/* The header */}
+        <div className="pendu-header">
+          <h1>Jeu du Pendu... Version Super Heros!</h1>
+          <p>Le jeu consiste à trouver le nom d'un super héro ou super vilain en devinant quelles sont les lettres qui le composent. <br />
+          Attention, tu n'auras que 9 essais, ensuite la partie sera perdue!</p>
         </div>
-        <img src={this.state.avatar} alt={this.state.penduLetters} className="avatar"/>
 
-        {/* ListLetters */}
-        <h2>Sélectionnez des lettres afin d'afficher le mot mistère</h2>
+        <div className="pendu-body">
+        {/* Letters */}
+        <div className="letters">
+        <h2>Choix des lettres</h2>
         {letters.map( letter => 
           <LetterBtn 
           onClick={this.handleClick}
@@ -100,6 +98,18 @@ class App extends React.Component {
           name={letter}
           />)
         }
+        </div>
+
+        {/* The riddle */}
+        <div className="pendu-riddle">
+          <button onClick={this.getWord} className="styled">Jouer !</button>
+
+          <div className="riddle">
+            {this.state.penduLetters ? this.state.penduLetters : this.state.riddle.replace(/\w/g, '_')}
+          </div>
+          <img src={this.state.avatar} alt={this.state.penduLetters} className="avatar"/>
+        </div>
+        
 
         {/* Pendu image */}
         <div className="pendu">
@@ -119,7 +129,8 @@ class App extends React.Component {
             <div id="img-9" className={this.state.nbError < 9 ? "pendu-hidden" : "pendu-not-hidden"}></div>
           </div>
         </div>
-      
+
+        </div>
       </div>
       );
     }

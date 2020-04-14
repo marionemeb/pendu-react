@@ -8,7 +8,7 @@ class LetterBtn extends React.Component {
         return ( 
             <button 
             type="button"
-            className={this.props.isSelected ? "selected" : ""} 
+            className={this.props.isSelected ? "selected col-2" : "btn col-2"} 
             onClick={this.handleClick}
             >
             { this.props.name }

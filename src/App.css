@@ -2,47 +2,21 @@
   text-align: center;
 }
 
-.riddle {
+/*** PENDU HEADER ***/
+.pendu-header{
+  width: 100vw;
+  height: 20vh;
+}
+
+/*** PENDU BODY ***/
+.pendu-body{
   display: flex;
-  flex-direction: row;
-  place-content: center;
-  letter-spacing: .4rem;
-  font-size: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*** Letters part ***/
+.letters{
+  width: 200px;
+  height: 80vh;
 }
 
 .selected{
@@ -50,8 +24,56 @@
   color: honeydew;
 }
 
+/*** riddle part ***/
+.pendu-riddle{
+  margin: 0px auto ;
+  width: 20vw;
+}
+
+.styled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  border-radius: 6px;
+  background-color: rgb(220, 0, 0);
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.riddle {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  letter-spacing: .4rem;
+  font-size: 2rem;
+}
+
+.avatar{
+  margin-top: 100px;
+  width: 200px;
+}
+
+/*** pendu part ***/
 .pendu{
-  margin: 100px auto;
+  margin: 0 auto;
   height: 520px;
   width: 680px;
   display: table;
@@ -70,6 +92,4 @@
   border: 1px solid white;
 }
 
-.avatar{
-  width: 200px;
-}
+
