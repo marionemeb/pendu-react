@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import './AppBD.css';
 import './App.scss';
 
 import LetterBtn from './components/LetterBtn';
@@ -82,23 +83,31 @@ class App extends React.Component {
 
     return (
       <div className="App">
-
         {/* The header */}
-        <div className="pendu-header">
-          <h1>Jeu du Pendu... Version Super Heros!</h1>
-          
+        <div className="panel pendu-header">
+          <h1 className="text top-left">Jeu du Pendu...</h1>
           <p>Le jeu consiste à trouver le nom d'un super héro ou super vilain en devinant quelles sont les lettres qui le composent. <br />
           Attention, tu n'auras que 10 essais, ensuite la partie sera perdue!</p>
+          <h2 className="text bottom-right">Version Super Heros!</h2>
         </div>
 
         <div className="pendu-body">
-        {/* Letters */}
-        <div className="letters">
-        <h2>
-        <div className="circle">
-              2
+        
+
+        {/* The riddle */}
+        <div className="pendu-riddle panel">
+          <h2 className="speech">Génère un nom de super héro</h2>
+          <button onClick={this.getWord} className="styled">Jouer !</button>
+
+          <div className="riddle">
+            {this.state.penduLetters ? this.state.penduLetters : this.state.riddle.replace(/\w/g, '_')}
+          </div>
+          <img src={this.state.avatar} alt={this.state.penduLetters} className="avatar"/>
         </div>
-          Choix des lettres</h2>
+
+        {/* Letters */}
+        <div className="letters panel">
+        <h2 className="text top-left">Choix des lettres</h2>
         {letters.map( letter => 
           <LetterBtn 
           onClick={this.handleClick}
@@ -109,25 +118,10 @@ class App extends React.Component {
           />)
         }
         </div>
-
-        {/* The riddle */}
-        <div className="pendu-riddle">
-          <h2>
-            <div className="circle">
-              1
-            </div>
-            Génère un nom de super héro
-          </h2>
-          <button onClick={this.getWord} className="styled">Jouer !</button>
-
-          <div className="riddle">
-            {this.state.penduLetters ? this.state.penduLetters : this.state.riddle.replace(/\w/g, '_')}
-          </div>
-          <img src={this.state.avatar} alt={this.state.penduLetters} className="avatar"/>
-        </div>
         
 
         {/* Pendu image */}
+        <div className="panel">
         <div className="pendu">
           <div className="table">
             <div id="img-1" className={this.state.nbError < 1 ? "pendu-hidden" : "pendu-not-hidden"}></div>
@@ -145,14 +139,15 @@ class App extends React.Component {
             <div id="img-9" className={this.state.nbError < 9 ? "pendu-hidden" : "pendu-not-hidden"}></div>
           </div>
         </div>
+        <p class="text bottom-right">THE END</p>
         </div>
-
+        
         {/* Counter*/}
-        <div className="counter">
+        <div className="counter panel">
           <h2 className="timer count-title count-number" data-to="100" data-speed="1500">{10 - this.state.nbError}</h2>
           <p className="count-text ">{this.state.nbError <10 ? "Essais restants" : "Essai restant"}</p>
         </div>
-        
+        </div>
 
         {/* Pop-up LOOSE*/}
         <div className={this.state.nbError < 10 ? "overlay" : "pop-up"}>
