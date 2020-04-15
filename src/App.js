@@ -75,11 +75,10 @@ class App extends React.Component {
 
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
-    let compare = "";
+    let compare = "overlay";
     if(this.state.usedLetters.length > 0 ){
       compare = this.state.riddle.localeCompare(this.state.penduLetters) ? "overlay" :"pop-up"
     }
-    console.log(compare);
 
     return (
       <div className="App">
@@ -89,14 +88,14 @@ class App extends React.Component {
           <h1>Jeu du Pendu... Version Super Heros!</h1>
           
           <p>Le jeu consiste à trouver le nom d'un super héro ou super vilain en devinant quelles sont les lettres qui le composent. <br />
-          Attention, tu n'auras que 9 essais, ensuite la partie sera perdue!</p>
+          Attention, tu n'auras que 10 essais, ensuite la partie sera perdue!</p>
         </div>
 
         <div className="pendu-body">
         {/* Letters */}
         <div className="letters">
         <h2>
-        <div class="circle">
+        <div className="circle">
               2
         </div>
           Choix des lettres</h2>
@@ -114,7 +113,7 @@ class App extends React.Component {
         {/* The riddle */}
         <div className="pendu-riddle">
           <h2>
-            <div class="circle">
+            <div className="circle">
               1
             </div>
             Génère un nom de super héro
@@ -146,8 +145,14 @@ class App extends React.Component {
             <div id="img-9" className={this.state.nbError < 9 ? "pendu-hidden" : "pendu-not-hidden"}></div>
           </div>
         </div>
-
         </div>
+
+        {/* Counter*/}
+        <div className="counter">
+          <h2 className="timer count-title count-number" data-to="100" data-speed="1500">{10 - this.state.nbError}</h2>
+          <p className="count-text ">{this.state.nbError <10 ? "Essais restants" : "Essai restant"}</p>
+        </div>
+        
 
         {/* Pop-up LOOSE*/}
         <div className={this.state.nbError < 10 ? "overlay" : "pop-up"}>
@@ -170,7 +175,7 @@ class App extends React.Component {
             </div>
           </div>
         </div>
-
+        
       </div>
       );
     }
