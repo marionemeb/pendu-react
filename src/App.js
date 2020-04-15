@@ -75,6 +75,12 @@ class App extends React.Component {
 
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
+    let compare = "";
+    if(this.state.usedLetters.length > 0 ){
+      compare = this.state.riddle.localeCompare(this.state.penduLetters) ? "overlay" :"pop-up"
+    }
+    console.log(compare);
+
     return (
       <div className="App">
 
@@ -145,11 +151,22 @@ class App extends React.Component {
 
         {/* Pop-up LOOSE*/}
         <div className={this.state.nbError < 10 ? "overlay" : "pop-up"}>
-          <div class="popup">
+          <div className="popup">
             <h2>PERDU !</h2>
             <a className="close" onClick={this.resetBuilder}>&times;</a>
-            <div class="content">
+            <div className="content">
               Retente ta chance...
+            </div>
+          </div>
+        </div>
+
+        {/* Pop-up WIN*/}
+        <div className={ compare}>
+          <div className="popup">
+            <h2>GAGNE !</h2>
+            <a className="close" onClick={this.resetBuilder}>&times;</a>
+            <div className="content">
+              On refait une partie?
             </div>
           </div>
         </div>
