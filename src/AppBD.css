@@ -95,3 +95,84 @@ background-image:radial-gradient(circle, palegreen, yellowgreen);
 .panel:nth-child(4n+4) {
 background-image:radial-gradient(circle, lightcoral, tomato);
 }
+
+
+
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .panel:nth-child(4n+1) {
+        flex-basis: 500px;
+        height: 110vh;
+    }
+
+    .panel:nth-child(4n+2) {
+        flex-basis: 500px;
+        height: 80vh;
+    }
+    
+    .panel:nth-child(4n+3) {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .panel:nth-child(4n+4) {
+        flex-basis: 700px;
+        height: 13vh;
+    }
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .panel:nth-child(4n+1) {
+        flex-basis: 400px;
+    }
+
+    .panel:nth-child(4n+2) {
+        flex-basis: 300px;
+    }
+    
+    .panel:nth-child(4n+3) {
+        flex-basis: 700px;
+    }
+
+    .panel:nth-child(4n+4) {
+        flex-basis: 700px;
+        height: 8vh;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .panel:nth-child(4n+1) {
+        flex-basis: 400px;
+    }
+
+    .panel:nth-child(4n+2) {
+        flex-basis: 300px;
+    }
+    
+    .panel:nth-child(4n+3) {
+        flex-basis: 700px;
+    }
+
+    .panel:nth-child(4n+4) {
+        flex-basis: 700px;
+        height: 8vh;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .panel:nth-child(4n+1) {
+        flex-basis: 600px;
+    }
+
+    .panel:nth-child(4n+2) {
+        flex-basis: 300px;
+    }
+    
+    .panel:nth-child(4n+3) {
+        flex-basis: 400px;
+    }
+}

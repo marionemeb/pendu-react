@@ -139,7 +139,7 @@ class App extends React.Component {
             <div id="img-9" className={this.state.nbError < 9 ? "pendu-hidden" : "pendu-not-hidden"}></div>
           </div>
         </div>
-        <p class="text bottom-right">THE END</p>
+        <p className="text bottom-right">THE END</p>
         </div>
         
         {/* Counter*/}
@@ -153,7 +153,7 @@ class App extends React.Component {
         <div className={this.state.nbError < 10 ? "overlay" : "pop-up"}>
           <div className="popup">
             <h2>PERDU !</h2>
-            <a className="close" onClick={this.resetBuilder}>&times;</a>
+            <a className="close" href="#" onClick={this.resetBuilder}>&times;</a>
             <div className="content">
               Retente ta chance...
             </div>
@@ -164,7 +164,7 @@ class App extends React.Component {
         <div className={ compare}>
           <div className="popup">
             <h2>GAGNE !</h2>
-            <a className="close" onClick={this.resetBuilder}>&times;</a>
+            <a className="close" href="#" onClick={this.resetBuilder}>&times;</a>
             <div className="content">
               On refait une partie?
             </div>
