@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family:'Comic Sans', cursive;
+  font-family:'Bangers', cursive;
   padding:1vmin;
   margin: 1vmin;
 }
@@ -19,7 +19,7 @@
 /*** PENDU BODY ***/
 .pendu-body{
   display: flex;
-  height: 70vh;
+  height: 85vh;
   width: 100%;
 }
 

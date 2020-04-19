@@ -26,6 +26,9 @@ class App extends React.Component {
       avatar:"",
       usedLetters: [],
       penduLetters: "",
+      aliases: "",
+      race: "",
+      biography: ""
     };
   }
 
@@ -45,7 +48,10 @@ class App extends React.Component {
     .then(data => {
       this.setState({
         riddle: data.name.toUpperCase(),
-        avatar: data.image.url
+        avatar: data.image.url,
+        aliases: data.biography.aliases,
+        race: data.appearance.race,
+        biography: data.biography.alignment
       });
     });
   }
@@ -88,7 +94,7 @@ class App extends React.Component {
           <h1 className="text top-left">Jeu du Pendu...</h1>
           <p>Le jeu consiste à trouver le nom d'un super héro ou super vilain en devinant quelles sont les lettres qui le composent. <br />
           Attention, tu n'auras que 10 essais, ensuite la partie sera perdue!</p>
-          <h2 className="text bottom-right">Version Super Heros!</h2>
+          <h2 className="text bottom-right">Version Super Héros!</h2>
         </div>
 
         <div className="pendu-body">
@@ -153,9 +159,14 @@ class App extends React.Component {
         <div className={this.state.nbError < 10 ? "overlay" : "pop-up"}>
           <div className="popup">
             <h2>PERDU !</h2>
-            <a className="close" href="#" onClick={this.resetBuilder}>&times;</a>
+            <a className="close" href="" onClick={this.resetBuilder}>&#10008;</a>
             <div className="content">
-              Retente ta chance...
+              <h4>Retentes ta chance...</h4>
+              <p>Nom: {this.state.riddle}<br/>
+                  Alias : {this.state.aliases[0]}<br/>
+                  Race : {this.state.race}<br/>
+                  Super {this.state.biography === "good" ? "Héro" : "Vilain"}
+              </p>
             </div>
           </div>
         </div>
@@ -164,9 +175,14 @@ class App extends React.Component {
         <div className={ compare}>
           <div className="popup">
             <h2>GAGNE !</h2>
-            <a className="close" href="#" onClick={this.resetBuilder}>&times;</a>
+            <a className="close" href="" onClick={this.resetBuilder}>&#10008;</a>
             <div className="content">
-              On refait une partie?
+              <h4>On refait une partie?</h4>
+              <p>Nom: {this.state.riddle}<br/>
+                  Alias : {this.state.aliases[0]}<br/>
+                  Race : {this.state.race}<br/>
+                  Super {this.state.biography === "good" ? "Héro" : "Vilain"}
+              </p>
             </div>
           </div>
         </div>
