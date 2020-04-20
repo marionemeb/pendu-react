@@ -38,14 +38,14 @@ $i:1;
   .pendu-body{
     display: flex;
     height: 70vh;
-    width: 100%;
+    width: 100%;;
   }
   
   /*** Letters part ***/
   .letters{
     padding-top: 100px;
     width: 200px;
-    height: 70vh;
+    height: 100%;
   }
   
   .selected{
@@ -253,5 +253,23 @@ $i:1;
   
     .pendu-header {
       height: 100% !important;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .pendu-body{
+      flex-wrap: wrap;
+      height: 75vh;
+    }
+  
+    .pendu-header {
+      height: 15vh;
+    }
+
+    .panel:nth-child(4) {
+      position: absolute;
+      height: fit-content;
+      width: 100px;
+      right: 2vmin;
     }
   }
