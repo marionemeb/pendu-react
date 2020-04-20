@@ -45,7 +45,6 @@ $i:1;
   .letters{
     padding-top: 100px;
     width: 200px;
-    height: 100%;
   }
   
   .selected{
@@ -56,6 +55,7 @@ $i:1;
   /*** riddle part ***/
   .pendu-riddle{
     width: 20vw;
+    padding-bottom: 40px;
   }
   
   .styled {
@@ -221,6 +221,10 @@ $i:1;
     .pendu-header {
       height: 100% !important;
     }
+
+    .panel:nth-child(4n+1) {
+      flex-basis: 500px;
+  }
   }
   
   /* // Small devices (landscape phones, 576px and up) */
@@ -249,11 +253,26 @@ $i:1;
   @media (min-width: 992px) and (max-width: 1199.98px) {
     .pendu-body{
       flex-wrap: wrap;
+      height: 40vh;
     }
   
     .pendu-header {
       height: 100% !important;
     }
+
+    .panel:nth-child(4n+2) {
+      flex: auto;
+  }
+
+    .panel:nth-child(4) {
+      height: fit-content;
+      width: 100px;
+      bottom: 0;
+      left: 2vmin;
+      position: absolute;
+    }
+
+    
   }
 
   @media (min-width: 1200px) {
@@ -272,4 +291,6 @@ $i:1;
       width: 100px;
       right: 2vmin;
     }
+
+    
   }
