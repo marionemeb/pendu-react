@@ -27,7 +27,8 @@ class App extends React.Component {
       penduLetters: "",
       aliases: "",
       race: "",
-      biography: ""
+      biography: "",
+      publisher: ""
     };
   }
 
@@ -50,6 +51,7 @@ class App extends React.Component {
         avatar: data.image.url,
         aliases: data.biography.aliases,
         race: data.appearance.race,
+        publisher: data.appearance.publisher,
         biography: data.biography.alignment
       });
     });
@@ -164,6 +166,7 @@ class App extends React.Component {
               <p>Nom: {this.state.riddle}<br/>
                   Alias : {this.state.aliases[0]}<br/>
                   Race : {this.state.race}<br/>
+                  Produit : {this.state.publisher}<br/>
                   Super {this.state.biography === "good" ? "Héro" : "Vilain"}
               </p>
             </div>
@@ -180,6 +183,7 @@ class App extends React.Component {
               <p>Nom: {this.state.riddle}<br/>
                   Alias : {this.state.aliases[0]}<br/>
                   Race : {this.state.race}<br/>
+                  Produit : {this.state.publisher}<br/>
                   Super {this.state.biography === "good" ? "Héro" : "Vilain"}
               </p>
             </div>
