@@ -1,0 +1,20 @@
+.pendu-riddle{
+    width: 20vw;
+    padding-bottom: 40px;
+}
+
+.riddle {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    letter-spacing: .4rem;
+    font-size: 2rem;
+  }
+  
+  .avatar{
+    margin-top: 25px;
+    max-width: 200px;
+    max-height: 240px;
+  }
+  

@@ -1,0 +1,85 @@
+$background-position: (top left,top center, top right,
+    left center,center center, right center,
+    left bottom,center bottom, right bottom);
+$i:1;
+
+@each $var in $background-position {
+   #img-#{$i}.pendu-not-hidden {
+        background: url(https://topcomics.fr/wp-content/uploads/2018/07/morts-les-plus-violentes-dans-les-comics-de-super-heros-ares-dechiquete-par-sentry.jpg);
+        background-position: $var;
+        display: table-cell;
+        width: 120px;
+        height: 120px;
+        border: 1px solid white;
+    }
+    $i:$i+1;
+}
+
+/*** pendu part ***/
+.pendu{
+    padding-top: 40px;
+    margin: auto auto;
+    height: 560px;
+    width: 680px;
+    display: table;
+  }
+  
+  .loose{
+    margin: 0 auto;
+    height: 560px;
+    width: 680px;
+    display: table;
+    opacity: 0.5;
+  }
+  
+  .table{
+    display: table-row;
+  }
+  
+  .pendu-hidden {
+    background-image:radial-gradient(circle, lightcoral, tomato);
+    background-position: center;
+    display: table-cell;
+    width: 120px;
+    height: 120px;
+    border: 1px solid white;
+  }
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .panel:nth-child(4n+1) {
+        flex-basis: 500px;
+    }
+}
+  
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .panel:nth-child(4n+2) {
+        flex: auto;
+    }
+
+    .panel:nth-child(4) {
+        height: fit-content;
+        width: 100px;
+        bottom: 0;
+        left: 2vmin;
+        position: absolute;
+    }
+}
+
+@media (min-width: 1200px) {
+    .panel:nth-child(4) {
+        position: absolute;
+        height: fit-content;
+        width: 100px;
+        right: 2vmin;
+    }
+}

@@ -5,6 +5,9 @@ import './AppBD.css';
 import './App.scss';
 
 import LetterBtn from './components/LetterBtn';
+import Pendu from './components/Pendu';
+import Riddle from './components/Riddle';
+import Popup from './components/Popup';
 
 class App extends React.Component {
   constructor(props) {
@@ -99,17 +102,11 @@ class App extends React.Component {
 
         <div className="pendu-body">
         
-
         {/* The riddle */}
-        <div className="pendu-riddle panel">
+        <Riddle penduLetters={this.state.penduLetters} riddle={this.state.riddle} avatar={this.state.avatar}>
           <h2 className="speech">Génère un nom de super héro</h2>
           <button onClick={this.getWord} className="styled">Jouer !</button>
-
-          <div className="riddle">
-            {this.state.penduLetters ? this.state.penduLetters : this.state.riddle.replace(/\w/g, '_')}
-          </div>
-          <img src={this.state.avatar} alt={this.state.penduLetters} className="avatar"/>
-        </div>
+        </Riddle>
 
         {/* Letters */}
         <div className="letters panel">
@@ -127,65 +124,27 @@ class App extends React.Component {
         
 
         {/* Pendu image */}
-        <div className="panel">
-        <div className="pendu">
-          <div className="table">
-            <div id="img-1" className={this.state.nbError < 1 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-            <div id="img-2" className={this.state.nbError < 2 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-            <div id="img-3" className={this.state.nbError < 3 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-          </div>
-          <div className="table">
-            <div id="img-4" className={this.state.nbError < 4 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-            <div id="img-5" className={this.state.nbError < 5 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-            <div id="img-6" className={this.state.nbError < 6 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-          </div>
-          <div className="table">
-            <div id="img-7" className={this.state.nbError < 7 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-            <div id="img-8" className={this.state.nbError < 8 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-            <div id="img-9" className={this.state.nbError < 9 ? "pendu-hidden" : "pendu-not-hidden"}></div>
-          </div>
-        </div>
-        <p className="text bottom-right">THE END</p>
-        </div>
+        <Pendu errors={this.state.nbError}/>
         
         {/* Counter*/}
         <div className="counter panel">
           <h2 className="timer count-title count-number" data-to="100" data-speed="1500">{10 - this.state.nbError}</h2>
           <p className="count-text ">{this.state.nbError <10 ? "Essais restants" : "Essai restant"}</p>
         </div>
+
         </div>
 
-        {/* Pop-up LOOSE*/}
-        <div className={this.state.nbError < 10 ? "overlay" : "pop-up"}>
+        {/* Pop-up*/}
+        <div className={this.state.nbError < 10 && compare === "overlay" ? "overlay" : "pop-up"}>
           <div className="popup">
-            <h2>PERDU !</h2>
             <a className="close" href="" onClick={this.resetBuilder}>&#10008;</a>
-            <div className="content">
-              <h4>Retentes ta chance...</h4>
-              <p>Nom: {this.state.riddle}<br/>
-                  Alias : {this.state.aliases[0]}<br/>
-                  Race : {this.state.race}<br/>
-                  Univers : {this.state.publisher}<br/>
-                  Super {this.state.biography === "good" ? "Héro" : "Vilain"}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Pop-up WIN*/}
-        <div className={ compare}>
-          <div className="popup">
-            <h2>GAGNE !</h2>
-            <a className="close" href="" onClick={this.resetBuilder}>&#10008;</a>
-            <div className="content">
-              <h4>On refait une partie?</h4>
-              <p>Nom: {this.state.riddle}<br/>
-                  Alias : {this.state.aliases[0]}<br/>
-                  Race : {this.state.race}<br/>
-                  Univers : {this.state.publisher}<br/>
-                  Super {this.state.biography === "good" ? "Héro" : "Vilain"}
-              </p>
-            </div>
+            <Popup 
+            nbError={this.state.nbError}
+            name={this.state.riddle} 
+            alias={this.state.aliases[0]}
+            race={this.state.race}
+            univers={this.state.publisher}
+            super={this.state.biography} />
           </div>
         </div>
         
