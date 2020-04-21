@@ -41,7 +41,7 @@ class App extends React.Component {
     //random heros
     const random = Math.floor(Math.random() * (731 - 1 + 1)) + 1;
     // Send the request
-    axios.get('https://www.superheroapi.com/api.php/' + process.env.REACT_APP_APIKEY + '/' + 78)
+    axios.get('https://www.superheroapi.com/api.php/' + process.env.REACT_APP_APIKEY + '/' + random)
     // Extract the DATA from the received response
     .then(response => response.data)
     // Use this data to update the state
